@@ -25,8 +25,46 @@ public class Souris {
         this.poids = autreSouris.poids;
         this.couleur = autreSouris.couleur;
         this.age = autreSouris.age;
-        this.esperanceVie = autreSouris.esperanceVie;
+        this.esperanceVie = (autreSouris.esperanceVie * 4) / 5;
         this.clonee = true;
         System.out.println("Clonage d'une souris !");
+    }
+
+    //Méthodes
+    public int vieillir () {
+        this.age++;
+        return this.age;
+    }
+
+    public void evolue() {
+        while (age < esperanceVie) {
+            vieillir();
+        }
+        System.out.println("La souris a évolué !");
+    }
+
+    public String toString() {
+        return "Souris de couleur " + this.couleur + (this.clonee ? " (clonee)" : "") + ", age : " + this.age + ", poids : " + this.poids + "kg, esperance de vie : " + this.esperanceVie + " mois.";
+    }
+
+    //Getters et Setters
+    public int getPoids() {
+        return poids;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public int getEsperanceVie() {
+        return esperanceVie;
+    }
+
+    public boolean isClonee() {
+        return clonee;
     }
 }
