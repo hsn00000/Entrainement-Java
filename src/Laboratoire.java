@@ -1,4 +1,4 @@
-public class App {
+public class Laboratoire {
     public static void main(String[] args) {
         
         Souris s1 = new Souris(50, "blanche", 2);
