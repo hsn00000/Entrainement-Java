@@ -54,7 +54,14 @@ public class Souris {
     }
 
     public String toString() {
-        return "Souris de couleur " + couleur + (clonee ? " (clonee)" : "") + ", age : " + age + ", poids : " + poids + "kg, esperance de vie : " + esperanceVie + " mois.";
+        String descritpion = "Souris de couleur " + couleur;
+
+        if (clonee) {
+            descritpion += " (clonee)";
+        }
+
+        descritpion += "age: " + age + ", poids : " + poids + "kg, esperance de vie : " + esperanceVie + " mois.";
+        return descritpion;
     }
 
     //Getters et Setters
