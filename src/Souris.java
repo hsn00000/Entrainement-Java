@@ -25,7 +25,7 @@ public class Souris {
         this.poids = autreSouris.poids;
         this.couleur = autreSouris.couleur;
         this.age = autreSouris.age;
-        this.esperanceVie = (autreSouris.esperanceVie * 4) / 5;
+        this.esperanceVie = (autreSouris.esperanceVie * 4 / 5);
         this.clonee = true;
         System.out.println("Clonage d'une souris !");
     }
