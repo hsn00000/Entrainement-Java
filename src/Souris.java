@@ -17,6 +17,16 @@ public class Souris {
         this.age = age;
         this.esperanceVie = esperanceVie;
         this.clonee = false;
+        System.out.println("Une nouvelle souris !");
     }
 
+    // Construteur de copie
+    public Souris(Souris autreSouris) {
+        this.poids = autreSouris.poids;
+        this.couleur = autreSouris.couleur;
+        this.age = autreSouris.age;
+        this.esperanceVie = autreSouris.esperanceVie;
+        this.clonee = true;
+        System.out.println("Clonage d'une souris !");
+    }
 }
