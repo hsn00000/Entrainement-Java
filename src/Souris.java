@@ -30,6 +30,16 @@ public class Souris {
         System.out.println("Clonage d'une souris !");
     }
 
+    //Constucteur avec poids et couleur
+    public Souris(int poids, String couleur) {
+        this(poids, couleur, 0, ESPERANCE_VIE_PAR_DEFAUT);
+    }
+
+    //Constructeur avec poids, couleur et age
+    public Souris(int poids, String couleur, int age) {
+        this(poids, couleur, age, ESPERANCE_VIE_PAR_DEFAUT);
+    }
+
     //Méthodes
     public int vieillir () {
         age++;
