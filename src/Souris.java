@@ -32,8 +32,8 @@ public class Souris {
 
     //Méthodes
     public int vieillir () {
-        this.age++;
-        return this.age;
+        age++;
+        return age;
     }
 
     public void evolue() {
@@ -44,7 +44,7 @@ public class Souris {
     }
 
     public String toString() {
-        return "Souris de couleur " + this.couleur + (this.clonee ? " (clonee)" : "") + ", age : " + this.age + ", poids : " + this.poids + "kg, esperance de vie : " + this.esperanceVie + " mois.";
+        return "Souris de couleur " + couleur + (clonee ? " (clonee)" : "") + ", age : " + age + ", poids : " + poids + "kg, esperance de vie : " + esperanceVie + " mois.";
     }
 
     //Getters et Setters
