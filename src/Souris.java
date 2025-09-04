@@ -1,87 +1,117 @@
-
 public class Souris {
-    //Constante de la classe
-    public static final int ESPERANCE_VIE_PAR_DEFAUT = 36;
 
     // Attributs
     private int poids;
-    private int age;
     private String couleur;
+    private int age;
     private int esperanceVie;
     private boolean clonee;
 
+    // Constantes
+    public static final int ESPERANCE_VIE = 36;
+
     // Constructeurs
     public Souris(int poids, String couleur, int age, int esperanceVie) {
+        if(poids < 0) {
+            throw new IllegalArgumentException("Le poids ne peut pas être négatif");
+        }else{
+            this.poids = poids;
+        }
+        if(age < 0) {
+            throw new IllegalArgumentException("L'âge ne peut pas être négatif");
+        }else{
+            this.age = age;
+        }
+        this.couleur = couleur;
+        if(esperanceVie < 0) {
+            throw new IllegalArgumentException("L'espérance de vie ne peut pas être négative");
+        }else{
+            this.esperanceVie = esperanceVie;
+        }
+        this.clonee = false;
+        
+        System.out.println("Une nouvelle souris !");
+        
+    }
+
+    public Souris(int poids, String couleur, int age) {
         this.poids = poids;
         this.couleur = couleur;
         this.age = age;
-        this.esperanceVie = esperanceVie;
+        this.esperanceVie = ESPERANCE_VIE;
         this.clonee = false;
+
         System.out.println("Une nouvelle souris !");
     }
 
-    // Construteur de copie
-    public Souris(Souris autreSouris) {
-        this.poids = autreSouris.poids;
-        this.couleur = autreSouris.couleur;
-        this.age = autreSouris.age;
-        this.esperanceVie = (autreSouris.esperanceVie * 4 / 5);
-        this.clonee = true;
-        System.out.println("Clonage d'une souris !");
-    }
-
-    //Constucteur avec poids et couleur
     public Souris(int poids, String couleur) {
-        this(poids, couleur, 0, ESPERANCE_VIE_PAR_DEFAUT);
+        this.poids = poids;
+        this.couleur = couleur;
+        this.age = 0;
+        this.esperanceVie = ESPERANCE_VIE;
+        this.clonee = false;
+
+        System.out.println("Une nouvelle souris !");
     }
 
-    //Constructeur avec poids, couleur et age
-    public Souris(int poids, String couleur, int age) {
-        this(poids, couleur, age, ESPERANCE_VIE_PAR_DEFAUT);
+    // Constructeur de copie
+    public Souris(Souris s2) {
+        this.poids = s2.getPoids();
+        this.couleur = s2.getCouleur();
+        this.age = s2.getAge();
+        this.esperanceVie = (s2.getEsperanceVie()*4)/5;
+        this.clonee = true;
+
+        System.out.println("Une nouvelle souris clonée !");
     }
 
-    //Méthodes
-    public int vieillir () {
-        age++;
-        return age;
+    // Méthodes
+    public int vieillir() {
+        this.age++;
+
+        if((this.age > this.esperanceVie/2) && (this.clonee == true)){
+            this.couleur = "verte";
+        }
+        return this.age;
     }
 
     public void evolue() {
-        while (age < esperanceVie) {
-            vieillir();
+        for(int i = this.age; i < this.esperanceVie; i++){
+            this.vieillir();
         }
-        System.out.println("La souris a évolué !");
     }
 
+    @Override
     public String toString() {
-        String descritpion = "Souris de couleur " + couleur;
-
-        if (clonee) {
-            descritpion += " (clonee)";
+        String result = "Une souris " + this.couleur;
+        if(this.clonee){
+            result += ", clonee";
         }
+        result += " de " + this.age + " mois et pesant " + this.poids + " grammes";
+        return result; 
+     }
 
-        descritpion += "age: " + age + ", poids : " + poids + "kg, esperance de vie : " + esperanceVie + " mois.";
-        return descritpion;
-    }
-
-    //Getters et Setters
+     // Getters
     public int getPoids() {
         return poids;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public String getCouleur() {
         return couleur;
     }
 
+    public boolean isClonee() {
+        return clonee;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public int getEsperanceVie() {
         return esperanceVie;
     }
 
-    public boolean isClonee() {
-        return clonee;
-    }
+    
+
 }
